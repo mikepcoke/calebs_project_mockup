@@ -1,0 +1,7 @@
+The Sermon Series page for <%= @sermon_series.title %>
+
+<p>Sermons </p>
+<% @sermon_series.sermons.each_with_index do |sermon, i|%>
+ <p><%= i+1 %>. <%= link_to sermon.title, sermon_path(sermon) %></p>
+ <p><%= sermon.passage %></p>
+<% end %>

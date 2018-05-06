@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171228200633) do
+ActiveRecord::Schema.define(version: 20180211202225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bible_books", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sermon_author_sermon_series", force: :cascade do |t|
     t.integer  "sermon_author_id"
@@ -35,6 +41,7 @@ ActiveRecord::Schema.define(version: 20171228200633) do
     t.string   "secondary_theme"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.text     "summary"
   end
 
   create_table "sermons", force: :cascade do |t|
@@ -43,6 +50,7 @@ ActiveRecord::Schema.define(version: 20171228200633) do
     t.integer  "sermon_author_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "sermon_series_id"
   end
 
   add_index "sermons", ["sermon_author_id"], name: "index_sermons_on_sermon_author_id", using: :btree

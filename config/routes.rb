@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :sermon_authors
+  resources :sermon_series
+  resources :sermons
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

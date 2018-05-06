@@ -1,0 +1,10 @@
+Sermon Authors
+  <% @sermon_authors.each do |sermon_author| %>
+  <table>
+    <tr>
+      <td><%= link_to "#{sermon_author.name}", sermon_author_path(sermon_author) %></td>
+    </tr>
+  </table>
+  <% end %>
+  <%= link_to 'New Sermon Author', new_sermon_author_path %>
+<p>

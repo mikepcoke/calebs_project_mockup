@@ -1,1 +1,11 @@
-Its the sermon author page for <%= @sermon_author.name%>
+<p>Its the sermon author page for <%= @sermon_author.name%></p>
+
+<p>Sermons Series</p>
+<% @sermon_author.sermon_series.each do |sermon_series|%>
+ <p><%= link_to sermon_series.title, sermon_series_path(sermon_series) %></p>
+<% end %>
+
+<p>Single Sermons </p>
+<% @sermon_author.single_sermons.each do |sermon|%>
+ <p><%= link_to sermon.title, sermon_path(sermon) %></p>
+<% end %>
